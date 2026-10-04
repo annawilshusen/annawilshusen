@@ -18,6 +18,9 @@ const archive = [
         category: "repertoire",
         title: "Doctor Gradus ad Parnassum",
         short: "Claude Debussy · Children's Corner, L. 113",
+        composer: "Claude Debussy",
+        work: "Children's Corner, L. 113",
+        status: "CURRENT REPERTOIRE",
         comments: "Hi! Im still trying out some stuff",
         link: "",
         linkLabel: "OPEN SCORE"
