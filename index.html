@@ -193,99 +193,108 @@
             });
         });
         function createEntry(item) {
-    const entry = document.createElement("div");
-    entry.className = "archive-entry archive-object filter-item";
-    entry.dataset.group = item.section;
-    entry.dataset.category = item.category || "";
-
-    const meta = item.section === "writing"
-        ? `${(item.category || "").toUpperCase()}${item.year ? " · " + item.year : ""}`
-        : item.section === "piano"
-        ? (item.category || "").toUpperCase()
-        : `${(item.category || "").toUpperCase()}${item.status ? " · " + item.status : ""}`;
-
-    entry.innerHTML = `
-        <span class="entry-id">${item.id}</span>
-        <span class="entry-main">
-            <span class="entry-title">${item.title}</span>
-            <span class="entry-description">${item.short || ""}</span>
-        </span>
-        <span class="entry-meta">${meta}</span>
-        <button class="entry-toggle" type="button" aria-label="Show more information">+</button>
-        <div class="entry-expanded" hidden></div>
-    `;
-
-    const expanded = entry.querySelector(".entry-expanded");
-    expanded.innerHTML = createExpandedContent(item);
-
-    entry.addEventListener("click", event => {
-        if (event.target.closest(".document-link")) return;
-
-        const wasOpen = !expanded.hidden;
-
-        document.querySelectorAll(".archive-object").forEach(other => {
-            const otherExpanded = other.querySelector(".entry-expanded");
-            const otherToggle = other.querySelector(".entry-toggle");
-
-            if (otherExpanded) otherExpanded.hidden = true;
-            if (otherToggle) otherToggle.textContent = "+";
-            other.classList.remove("open");
-        });
-
-        if (!wasOpen) {
-            expanded.hidden = false;
-            entry.querySelector(".entry-toggle").textContent = "×";
-            entry.classList.add("open");
-        }
-    });
-
-    return entry;
-    }
-    function createExpandedContent(item) {
-        let content = "";
-    
-        if (item.section === "piano") {
-            if (item.comments) {
-                content += `
-                    <div class="expanded-description">
-                        <span>COMMENTS</span>
-                        <p>${item.comments}</p>
-                    </div>
-                `;
-            }
-        } else {
-            if (item.description) {
-                content += `
-                    <div class="expanded-description">
-                        <span>DESCRIPTION</span>
-                        <p>${item.description}</p>
-                    </div>
-                `;
-            }
-    
-            content += `<div class="expanded-data">`;
-    
-            if (item.year) content += `<span>YEAR</span><span>${item.year}</span>`;
-            if (item.category) content += `<span>CATEGORY</span><span>${item.category.toUpperCase()}</span>`;
-            if (item.status) content += `<span>STATUS</span><span>${item.status}</span>`;
-            if (item.topics && item.topics.length) {
-                content += `<span>TOPICS</span><span>${item.topics.join(" · ")}</span>`;
-            }
-    
-            content += `</div>`;
-        }
-    
-        if (item.link) {
-            content += `
-                <a class="document-link" href="${item.link}" target="_blank" rel="noopener">
-                    <span>${item.linkLabel || "OPEN DOCUMENT"}</span>
-                    <span>↗</span>
-                </a>
+            const entry = document.createElement("div");
+            entry.className = "archive-entry archive-object filter-item";
+            entry.dataset.group = item.section;
+            entry.dataset.category = item.category || "";
+        
+            const metaParts = [];
+        
+            if (item.category) metaParts.push(item.category.toUpperCase());
+            if (item.year && item.section !== "piano") metaParts.push(item.year);
+        
+            const meta = metaParts.join(" · ");
+        
+            entry.innerHTML = `
+                <span class="entry-id">${item.id}</span>
+                <span class="entry-main">
+                    <span class="entry-title">${item.title}</span>
+                    <span class="entry-description">${item.short || ""}</span>
+                </span>
+                <span class="entry-meta">${meta}</span>
+                <button class="entry-toggle" type="button" aria-label="Show more information">+</button>
+                <div class="entry-expanded" hidden></div>
             `;
+        
+            const expanded = entry.querySelector(".entry-expanded");
+            expanded.innerHTML = createExpandedContent(item);
+        
+            entry.addEventListener("click", event => {
+                if (event.target.closest(".document-link")) return;
+        
+                const wasOpen = !expanded.hidden;
+        
+                document.querySelectorAll(".archive-object").forEach(other => {
+                    const otherExpanded = other.querySelector(".entry-expanded");
+                    const otherToggle = other.querySelector(".entry-toggle");
+        
+                    if (otherExpanded) otherExpanded.hidden = true;
+                    if (otherToggle) otherToggle.textContent = "+";
+        
+                    other.classList.remove("open");
+                });
+        
+                if (!wasOpen) {
+                    expanded.hidden = false;
+                    entry.querySelector(".entry-toggle").textContent = "×";
+                    entry.classList.add("open");
+                }
+            });
+        
+            return entry;
         }
-    
-        return content;
-    }
+        
+        function createExpandedContent(item) {
+            let content = "";
+        
+            const mainText = item.description || item.comments;
+        
+            if (mainText) {
+                const label = item.comments && !item.description
+                    ? "COMMENTS"
+                    : "DESCRIPTION";
+        
+                content += `
+                    <div class="expanded-description">
+                        <span>${label}</span>
+                        <p>${mainText}</p>
+                    </div>
+                `;
+            }
+        
+            const metadata = [];
+        
+            if (item.year) metadata.push(["YEAR", item.year]);
+            if (item.composer) metadata.push(["COMPOSER", item.composer]);
+            if (item.work) metadata.push(["WORK", item.work]);
+            if (item.category) metadata.push(["CATEGORY", item.category.toUpperCase()]);
+            if (item.status) metadata.push(["STATUS", item.status]);
+        
+            if (item.topics && item.topics.length) {
+                metadata.push(["TOPICS", item.topics.join(" · ")]);
+            }
+        
+            if (metadata.length) {
+                content += `<div class="expanded-data">`;
+        
+                metadata.forEach(([label, value]) => {
+                    content += `<span>${label}</span><span>${value}</span>`;
+                });
+        
+                content += `</div>`;
+            }
+        
+            if (item.link) {
+                content += `
+                    <a class="document-link" href="${item.link}" target="_blank" rel="noopener">
+                        <span>${item.linkLabel || "OPEN DOCUMENT"}</span>
+                        <span>↗</span>
+                    </a>
+                `;
+            }
+        
+            return content;
+        }
     
     function renderArchive() {
         const destinations = {
