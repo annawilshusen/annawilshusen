@@ -10,6 +10,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+<div class="subject-overlay" id="subjectOverlay">
+    <div class="subject-panel">
+        <button class="close-panel" id="closePanel">×</button>
+        <p class="panel-label">SUBJECT INFORMATION / FILE M</p>
+        <h3>THE SUBJECT</h3>
+        <div class="subject-data">
+            <span>SUBJECT</span><span>M</span>
+            <span>SPECIES</span><span>Macaca sp.</span>
+            <span>LOCATION</span><span>UNKNOWN</span>
+            <span>TIME ELAPSED</span><span>∞</span>
+            <span>AVAILABLE EQUIPMENT</span><span>1 × TYPEWRITER</span>
+            <span>OUTPUT</span><span>INDETERMINATE</span>
+            <span>CONSCIOUS INTENT</span><span>UNVERIFIABLE</span>
+        </div>
+        <div class="probability">
+            <span>P(EVENTUALLY PRODUCING ANY FINITE TEXT) → 1</span>
+            <span>AS t → ∞</span>
+        </div>
+        <p class="subject-note">Whether the subject understands what it produces remains outside the scope of this archive.</p>
+    </div>
+</div>
+<script>
+    const subjectButton = document.getElementById("subjectButton");
+    const subjectOverlay = document.getElementById("subjectOverlay");
+    const closePanel = document.getElementById("closePanel");
+
+    subjectButton.addEventListener("click", () => subjectOverlay.classList.add("active"));
+    closePanel.addEventListener("click", () => subjectOverlay.classList.remove("active"));
+    subjectOverlay.addEventListener("click", (event) => {
+        if (event.target === subjectOverlay) subjectOverlay.classList.remove("active");
+    });
+</script>
+    
 <body>
     <header class="topbar">
         <a class="archive-name" href="#">AWG / ARCHIVE</a>
@@ -19,7 +52,9 @@
             <a href="#projects">PROJECTS</a>
             <a href="#about">ABOUT</a>
         </nav>
-        <span class="monkey-status">MONKEY STATUS: TYPING</span>
+        <button class="subject-status" id="subjectButton">
+            <span class="status-dot"></span> SUBJECT STATUS: ACTIVE
+        </button>
     </header>
 
     <main>
