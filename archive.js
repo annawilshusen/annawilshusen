@@ -28,12 +28,8 @@ const archive = [
                 url: "files/LaEstadisticaDetrasDeLaImpaciencia.pdf"
             },
             {
-                label: "WATCH VIDEO",
-                url: "YOUR-VIDEO-LINK"
-            },
-            {
                 label: "OPEN PRESENTATION",
-                url: "YOUR-PRESENTATION-LINK"
+                url: "files/Presentacion_EstadisticaDetrasDeLaImpaciencia.pdf"
             }
         ]
     },
