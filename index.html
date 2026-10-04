@@ -24,7 +24,10 @@
         </div>
     
         <div class="subject-output">
-            <span id="subjectOutput"></span><span class="typing-cursor">█</span>
+            <span class="output-label">OUTPUT:</span>
+            <div class="output-window">
+                <span id="subjectOutput"></span><span class="typing-cursor">█</span>
+            </div>
         </div>
     </div>
 
@@ -420,7 +423,7 @@
     
         subjectOutput.textContent = subjectText;
     
-        const container = subjectOutput.parentElement;
+        const container = subjectOutput.closest(".output-window");
         const overflow = subjectOutput.scrollWidth - container.clientWidth;
     
         if (overflow > 0) {
