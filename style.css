@@ -1883,3 +1883,55 @@ a.transmission-link:hover {
         top: 129px;
     }
 }
+/* SUBJECT M / OBSERVATION WINDOW */
+
+.observation-window {
+    margin: 38px 0;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.observation-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-top: 1px solid var(--line);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+}
+
+.observation-image {
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid var(--text);
+    border-bottom: 1px solid var(--text);
+    background: #000;
+}
+
+.observation-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.observation-data {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+}
+
+.observation-data span {
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.observation-data span:nth-child(odd) {
+    color: var(--muted);
+}
+
+@media (max-width: 750px) {
+    .observation-data {
+        grid-template-columns: 130px 1fr;
+    }
+}
