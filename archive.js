@@ -29,7 +29,7 @@ const archive = [
             },
             {
                 label: "OPEN PRESENTATION",
-                url: "files/Presentacion_EstadisticaDetrasDeLaImpaciencia.pdf"
+                url: "files/Presentacion_EstadisticaDetrasDeImpaciencia.pdf"
             }
         ]
     },
