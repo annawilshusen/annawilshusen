@@ -46,6 +46,23 @@ const archive = [
         link: "files/NomesSeQueNoSeRes.pdf",
         linkLabel: "OPEN PAPER"
     },
+        {
+        id: "W-004",
+        section: "writing",
+        category: "Summaries and simulations",
+        title: "Quantum Physics & Relativity - IFAE",
+        short: "Papers, notes and simulations from my stay at IFAE.",
+        description: "A collection of work developed during the Youth & Science programme at the Institut de Física d'Altes Energies (IFAE), exploring quantum physics, relativity and some of the ideas that transformed modern physics.",
+        year: "2026",
+        status: "COMPLETE",
+        topics: ["QUANTUM PHYSICS", "RELATIVITY", "IFAE"],
+        links: [
+            {
+                label: "OPEN COLLECTION",
+                url: "https://drive.google.com/drive/folders/1ecN_pDZ0A2kT8iX2ijfHlBP1RNVM1lF6?usp=sharing"
+            }
+        ]
+    },
     {
         id: "P-001",
         section: "piano",
