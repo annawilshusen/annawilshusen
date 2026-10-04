@@ -415,17 +415,18 @@
         ];
     }
     
-    function trimSubjectOutput() {
+    function updateSubjectOutput() {
         if (!subjectOutput) return;
     
-        const container = subjectOutput.parentElement;
+        subjectOutput.textContent = subjectText;
     
-        while (
-            subjectOutput.scrollWidth > container.clientWidth &&
-            subjectText.length > 1
-        ) {
-            subjectText = subjectText.slice(1);
-            subjectOutput.textContent = subjectText;
+        const container = subjectOutput.parentElement;
+        const overflow = subjectOutput.scrollWidth - container.clientWidth;
+    
+        if (overflow > 0) {
+            subjectOutput.style.transform = `translateX(-${overflow}px)`;
+        } else {
+            subjectOutput.style.transform = "translateX(0)";
         }
     }
     
@@ -433,21 +434,24 @@
         if (!subjectOutput) return;
     
         subjectText += randomSubjectCharacter();
-        subjectOutput.textContent = subjectText;
     
-        trimSubjectOutput();
+        /* Evita guardar una cadena infinita */
+        if (subjectText.length > 500) {
+            subjectText = subjectText.slice(-500);
+        }
     
         localStorage.setItem("subjectMOutput", subjectText);
+    
+        updateSubjectOutput();
     
         const nextKeystroke = 70 + Math.random() * 260;
         setTimeout(subjectType, nextKeystroke);
     }
     
-    subjectOutput.textContent = subjectText;
-    trimSubjectOutput();
+    updateSubjectOutput();
     subjectType();
     
-    window.addEventListener("resize", trimSubjectOutput);
+    window.addEventListener("resize", updateSubjectOutput);
         
     </script>
 </body>
