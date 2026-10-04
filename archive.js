@@ -22,4 +22,17 @@ const archive = [
         link: "this is a link but prob doesnt work jijiji",
         linkLabel: "OPEN SCORE"
     }
+    {
+        id: "O-001",
+        section: "noticing",
+        category: "perception",
+        title: "Why do distant things seem to measure centimetres?",
+        short: "On apparent size, perspective, and assigning lengths to things that aren't actually that small.",
+        description: "I kept noticing that I instinctively assign a linear measurement in centimetres to the apparent size of distant objects, even though I know that measurement cannot represent their physical size.",
+        year: "2026",
+        status: "STILL THINKING",
+        topics: ["PERCEPTION", "ANGULAR SIZE", "PERSPECTIVE"],
+        link: "jijiji",
+        linkLabel: "OPEN DOCUMENT"
+    }
 ];
