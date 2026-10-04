@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transmission — Anna Wilshusen Gaska</title>
+    <meta name="description" content="Send a transmission to the AWG Archive.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="archive-name" href="index.html">AWG / ARCHIVE</a>
+        <span></span>
+        <span class="transmission-status"><span class="status-dot"></span>RECEIVER: ACTIVE</span>
+    </header>
+
+    <main class="transmission-page">
+        <section class="transmission-hero">
+            <div class="transmission-code">
+                CHANNEL: OPEN<br>
+                DESTINATION: AWG / ARCHIVE<br>
+                PROTOCOL: IDENTIFIED
+            </div>
+
+            <p class="section-label">INCOMING TRANSMISSION / IDENTIFIED</p>
+
+            <h1 class="transmission-title">
+                SAY<br>
+                SOMETHING.
+            </h1>
+
+            <p class="transmission-intro">
+                A thought, question, correction, collaboration, objection, or something that doesn't belong anywhere else.
+            </p>
+        </section>
+
+        <section class="message-terminal">
+            <div id="formContainer">
+                <div class="terminal-header">
+                    <span>TRANSMISSION FORM</span>
+                    <span>IDENTIFICATION: REQUIRED</span>
+                </div>
+
+                <form id="transmissionForm">
+                    <div class="form-field">
+                        <label for="name">NAME</label>
+                        <input type="text" id="name" name="name" autocomplete="name" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email">EMAIL</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+
+                    <div class="form-field message-field">
+                        <label for="message">MESSAGE</label>
+                        <textarea id="message" name="message" rows="8" required></textarea>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="New AWG Archive transmission">
+
+                    <div class="form-bottom">
+                        <span id="formStatus">CHANNEL READY</span>
+                        <button type="submit" id="transmitButton">TRANSMIT →</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="transmission-success" id="transmissionSuccess" hidden>
+                <p class="success-code">TRANSMISSION RECEIVED</p>
+                <h2>Message sent<br>successfully.</h2>
+
+                <div class="success-data">
+                    <span>DELIVERY</span><span>CONFIRMED</span>
+                    <span>ARCHIVE STATUS</span><span>RECEIVED</span>
+                    <span>SUBJECT M</span><span>NOT INFORMED</span>
+                </div>
+
+                <p class="success-note">
+                    The archive has received your contribution.
+                </p>
+
+                <a href="index.html" class="return-archive">← RETURN TO ARCHIVE</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById("transmissionForm");
+        const button = document.getElementById("transmitButton");
+        const status = document.getElementById("formStatus");
+        const formContainer = document.getElementById("formContainer");
+        const success = document.getElementById("transmissionSuccess");
+
+        form.addEventListener("submit", async event => {
+            event.preventDefault();
+
+            button.disabled = true;
+            button.textContent = "TRANSMITTING...";
+            status.textContent = "UPLINK IN PROGRESS";
+
+            const data = new FormData(form);
+
+            try {
+                const response = await fetch("https://formspree.io/f/maenrrno", {
+                    method: "POST",
+                    body: data,
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                });
+
+                if (response.ok) {
+                    formContainer.hidden = true;
+                    success.hidden = false;
+                    window.scrollTo({
+                        top: document.querySelector(".message-terminal").offsetTop - 64,
+                        behavior: "smooth"
+                    });
+                } else {
+                    throw new Error("Transmission rejected");
+                }
+            } catch (error) {
+                status.textContent = "TRANSMISSION FAILED — TRY AGAIN";
+                button.disabled = false;
+                button.textContent = "TRANSMIT →";
+            }
+        });
+    </script>
+</body>
+</html>
