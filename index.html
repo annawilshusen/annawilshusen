@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="archive-list">
-                    <a class="archive-entry filter-item" data-group="writing" data-category="papers" href="files/neutrinos-as-cosmic-rays.pdf" target="_blank">
+                    <a class="archive-entry filter-item" data-group="writing" data-category="papers" data-archive-object data-archive-type="writing" href="files/neutrinos-as-cosmic-rays.pdf" target="_blank">
                         <span class="entry-id">W-001</span>
                         <span class="entry-main">
                             <span class="entry-title">Reasons for and against classifying neutrinos as cosmic rays</span>
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="archive-list">
-                    <a class="archive-entry filter-item" data-group="piano" data-category="repertoire" href="#">
+                    <a class="archive-entry filter-item" data-group="piano" data-category="repertoire" data-archive-object data-archive-type="piano" href="#">
                         <span class="entry-id">P-001</span>
                         <span class="entry-main">
                             <span class="entry-title">Doctor Gradus ad Parnassum</span>
@@ -114,7 +114,7 @@
                 <p class="section-intro">Things that escaped the page and became physical.</p>
 
                 <div class="archive-list">
-                    <a class="archive-entry" href="projects/irrigation.html">
+                    <a class="archive-entry" data-archive-object data-archive-type="project" href="projects/irrigation.html">
                         <span class="entry-id">X-001</span>
                         <span class="entry-main">
                             <span class="entry-title">Automatic Irrigation System</span>
@@ -127,6 +127,17 @@
             </div>
         </section>
     </main>
+
+    <section class="archive-status-block">
+        <p class="section-label">ARCHIVE STATUS</p>
+        <div class="archive-status-data">
+            <span>CATALOGUED OBJECTS</span><span id="objectCount">—</span>
+            <span>WRITINGS</span><span id="writingCount">—</span>
+            <span>OBSERVATIONS</span><span id="observationCount">—</span>
+            <span>PROJECTS</span><span id="projectCount">—</span>
+            <span>SUBJECT M OUTPUT</span><span>0</span>
+        </div>
+    </section>
 
     <footer class="main-footer">
         <span>ANNA WILSHUSEN GASKA</span>
@@ -161,7 +172,7 @@
             <p class="subject-note">Whether the subject understands what it produces remains outside the scope of this archive.</p>
         </div>
     </div>
-
+    
     <script>
         const subjectButton = document.getElementById("subjectButton");
         const subjectOverlay = document.getElementById("subjectOverlay");
@@ -199,6 +210,14 @@
                 });
             });
         });
+        const archiveObjects = document.querySelectorAll("[data-archive-object]");
+        const writingObjects = document.querySelectorAll('[data-archive-type="writing"]');
+        const observationObjects = document.querySelectorAll('[data-archive-type="observation"]');
+        const projectObjects = document.querySelectorAll('[data-archive-type="project"]');
+        document.getElementById("objectCount").textContent = archiveObjects.length;
+        document.getElementById("writingCount").textContent = writingObjects.length;
+        document.getElementById("observationCount").textContent = observationObjects.length;
+        document.getElementById("projectCount").textContent = projectObjects.length;
     </script>
 </body>
 </html>
