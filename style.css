@@ -764,3 +764,153 @@ a.transmission-link:hover {
         font-size: 9px;
     }
 }
+
+/* SECRET PORTFOLIO */
+.portfolio-body {
+    min-height: 100vh;
+}
+
+.portfolio-page {
+    min-height: 100vh;
+    padding: 7vh 5vw;
+    position: relative;
+}
+
+.portfolio-back {
+    position: absolute;
+    top: 7vh;
+    left: 5vw;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+}
+
+.portfolio-back:hover {
+    color: var(--text);
+}
+
+.portfolio-code {
+    position: absolute;
+    top: 7vh;
+    right: 5vw;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    line-height: 1.7;
+    letter-spacing: 0.08em;
+    text-align: right;
+    color: var(--muted);
+}
+
+.portfolio-content {
+    padding-top: 15vh;
+}
+
+.portfolio-title {
+    font-size: clamp(75px, 12vw, 175px);
+}
+
+.portfolio-message {
+    margin: 65px 0 80px;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.portfolio-message p {
+    margin: 0;
+}
+
+.waiting-block {
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.waiting-label {
+    margin: 0 0 15px;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+}
+
+.waiting-time {
+    font-family: "Courier New", monospace;
+    font-size: clamp(16px, 2vw, 28px);
+    letter-spacing: 0.04em;
+}
+
+.estimate-block {
+    padding: 35px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 30px;
+    border-bottom: 1px solid var(--line);
+    font-family: "Courier New", monospace;
+}
+
+.estimate-block span,
+.portfolio-progress {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+}
+
+.estimate-block strong {
+    font-size: clamp(22px, 4vw, 55px);
+    font-weight: 400;
+}
+
+.estimate-block sup {
+    font-size: 0.55em;
+}
+
+.portfolio-progress {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+}
+
+.portfolio-final {
+    margin: 60px 0 0;
+    max-width: 500px;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+@media (max-width: 750px) {
+    .portfolio-page {
+        padding: 5vh 7vw;
+    }
+
+    .portfolio-back {
+        top: 5vh;
+        left: 7vw;
+    }
+
+    .portfolio-code {
+        display: none;
+    }
+
+    .portfolio-content {
+        padding-top: 15vh;
+    }
+
+    .portfolio-message {
+        margin: 50px 0 60px;
+    }
+
+    .estimate-block {
+        flex-direction: column;
+    }
+
+    .portfolio-progress {
+        flex-direction: column;
+    }
+}
