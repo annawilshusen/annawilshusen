@@ -86,7 +86,7 @@ nav a:hover {
 
 .hero {
     min-height: 100vh;
-    padding: 110px 5vw 6vh;
+    padding: 134px 5vw 6vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -95,7 +95,7 @@ nav a:hover {
 
 .hero-code {
     position: absolute;
-    top: 105px;
+    top: 129px;;
     right: 5vw;
     font-family: "Courier New", monospace;
     font-size: 10px;
@@ -1837,4 +1837,26 @@ a.transmission-link:hover {
 
 .subject-footer .typing-cursor {
     margin-left: 4px;
+}
+@media (max-width: 750px) {
+    .subject-stream {
+        padding: 0 7vw;
+        gap: 14px;
+    }
+
+    .subject-elapsed {
+        padding-right: 14px;
+    }
+
+    .subject-output {
+        overflow: hidden;
+    }
+
+    .hero {
+        padding-top: 144px;
+    }
+
+    .hero-code {
+        top: 129px;
+    }
 }
