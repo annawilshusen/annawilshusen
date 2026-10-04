@@ -1224,3 +1224,139 @@ a.transmission-link:hover {
         width: 100%;
     }
 }
+
+/* ARCHIVE OBJECT PAGES */
+.object-status {
+    justify-self: end;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+.object-page {
+    padding-top: 64px;
+}
+
+.object-hero {
+    min-height: calc(100vh - 64px);
+    padding: 8vh 5vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--line);
+}
+
+.object-title {
+    width: 70%;
+    font-size: clamp(70px, 11vw, 165px);
+}
+
+.object-metadata {
+    position: absolute;
+    top: 8vh;
+    right: 5vw;
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--line);
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+}
+
+.object-metadata span {
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.object-metadata span:nth-child(odd) {
+    color: var(--muted);
+}
+
+.object-question {
+    position: absolute;
+    bottom: 7vh;
+    left: 5vw;
+    max-width: 560px;
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.object-content,
+.related-objects {
+    padding: 12vh 20vw;
+    border-bottom: 1px solid var(--line);
+}
+
+.object-content > p:not(.section-label) {
+    max-width: 760px;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+.object-content .object-large-text {
+    max-width: 900px;
+    margin-bottom: 60px;
+    font-size: clamp(25px, 3vw, 42px);
+    line-height: 1.35;
+}
+
+.state-grid {
+    max-width: 750px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--line);
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.07em;
+}
+
+.state-grid span {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.state-grid span:nth-child(odd) {
+    color: var(--muted);
+}
+
+.related-objects > p:last-child {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--muted);
+}
+
+@media (max-width: 750px) {
+    .object-hero {
+        min-height: 90vh;
+        padding: 12vh 7vw 8vh;
+    }
+
+    .object-title {
+        width: 100%;
+        font-size: 17vw;
+    }
+
+    .object-metadata {
+        position: static;
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .object-question {
+        position: static;
+        margin-top: 45px;
+    }
+
+    .object-content,
+    .related-objects {
+        padding: 10vh 7vw;
+    }
+}
