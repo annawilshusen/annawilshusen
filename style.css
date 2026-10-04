@@ -235,3 +235,53 @@ footer span:last-child {
         display: none;
     }
 }
+
+.section-content {
+    width: 100%;
+}
+.section-intro {
+    max-width: 520px;
+    margin: 40px 0 80px;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+.archive-list {
+    width: 100%;
+    border-top: 1px solid var(--line);
+}
+.archive-entry {
+    display: grid;
+    grid-template-columns: 60px 1fr auto 30px;
+    gap: 25px;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+    transition: padding 0.25s, opacity 0.25s;
+}
+.archive-entry:hover {
+    padding-left: 12px;
+}
+.entry-id, .entry-meta {
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+.entry-main {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.entry-title {
+    font-size: 18px;
+}
+.entry-description {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--muted);
+}
+.entry-arrow {
+    font-size: 17px;
+}
