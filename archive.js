@@ -18,8 +18,8 @@ const archive = [
         category: "repertoire",
         title: "Doctor Gradus ad Parnassum",
         short: "Claude Debussy · Children's Corner, L. 113",
-        comments: "",
-        link: "",
+        comments: "Hi! Im still trying out some stuff",
+        link: "this is a link but prob doesnt work jijiji",
         linkLabel: "OPEN SCORE"
     }
 ];
