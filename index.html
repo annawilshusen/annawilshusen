@@ -3,46 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Anna Wilshusen Gaska</title>
-
     <meta name="description" content="Personal archive of Anna Wilshusen Gaska — physics, mathematics, philosophy, writing, music and projects.">
     <link rel="stylesheet" href="style.css">
 </head>
-
-<div class="subject-overlay" id="subjectOverlay">
-    <div class="subject-panel">
-        <button class="close-panel" id="closePanel">×</button>
-        <p class="panel-label">SUBJECT INFORMATION / FILE M</p>
-        <h3>THE SUBJECT</h3>
-        <div class="subject-data">
-            <span>SUBJECT</span><span>M</span>
-            <span>SPECIES</span><span>Macaca sp.</span>
-            <span>LOCATION</span><span>UNKNOWN</span>
-            <span>TIME ELAPSED</span><span>∞</span>
-            <span>AVAILABLE EQUIPMENT</span><span>1 × TYPEWRITER</span>
-            <span>OUTPUT</span><span>INDETERMINATE</span>
-            <span>CONSCIOUS INTENT</span><span>UNVERIFIABLE</span>
-        </div>
-        <div class="probability">
-            <span>P(EVENTUALLY PRODUCING ANY FINITE TEXT) → 1</span>
-            <span>AS t → ∞</span>
-        </div>
-        <p class="subject-note">Whether the subject understands what it produces remains outside the scope of this archive.</p>
-    </div>
-</div>
-<script>
-    const subjectButton = document.getElementById("subjectButton");
-    const subjectOverlay = document.getElementById("subjectOverlay");
-    const closePanel = document.getElementById("closePanel");
-
-    subjectButton.addEventListener("click", () => subjectOverlay.classList.add("active"));
-    closePanel.addEventListener("click", () => subjectOverlay.classList.remove("active"));
-    subjectOverlay.addEventListener("click", (event) => {
-        if (event.target === subjectOverlay) subjectOverlay.classList.remove("active");
-    });
-</script>
-    
 <body>
     <header class="topbar">
         <a class="archive-name" href="#">AWG / ARCHIVE</a>
@@ -52,34 +16,18 @@
             <a href="#projects">PROJECTS</a>
             <a href="#about">ABOUT</a>
         </nav>
-        <button class="subject-status" id="subjectButton">
-            <span class="status-dot"></span> SUBJECT STATUS: ACTIVE
-        </button>
+        <button class="subject-status" id="subjectButton"><span class="status-dot"></span>SUBJECT STATUS: ACTIVE</button>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-code">
-                ARCHIVE 001<br>
-                OBSERVER: UNKNOWN<br>
-                TIME REMAINING: ∞
-            </div>
+            <div class="hero-code">ARCHIVE 001<br>OBSERVER: UNKNOWN<br>TIME REMAINING: ∞</div>
             <div class="hero-content">
                 <p class="eyebrow">PERSONAL ARCHIVE OF</p>
-                <h1>
-                    ANNA<br>
-                    WILSHUSEN<br>
-                    GASKA
-                </h1>
-                <p class="subtitle">
-                    High school student<br>
-                    Physics · Mathematics · Philosophy
-                </p>
+                <h1>ANNA<br>WILSHUSEN<br>GASKA</h1>
+                <p class="subtitle">High school student<br>Physics · Mathematics · Philosophy</p>
             </div>
-            <p class="archive-statement">
-                An archive of things that may or may not
-                constitute information.
-            </p>
+            <p class="archive-statement">An archive of things that may or may not constitute information.</p>
         </section>
 
         <section class="archive-section" id="writings">
@@ -88,7 +36,7 @@
                 <p class="section-label">ARCHIVE / WRITINGS</p>
                 <h2>Writings</h2>
                 <p class="section-intro">Papers, essays, ideas, and other arrangements of words produced along the way.</p>
-                    <div class="archive-list">
+                <div class="archive-list">
                     <a class="archive-entry" href="files/neutrinos-as-cosmic-rays.pdf" target="_blank">
                         <span class="entry-id">001</span>
                         <span class="entry-main">
@@ -146,5 +94,38 @@
         <span>THE MONKEY IS STILL TYPING.</span>
         <span>∞</span>
     </footer>
+
+    <div class="subject-overlay" id="subjectOverlay">
+        <div class="subject-panel">
+            <button class="close-panel" id="closePanel">×</button>
+            <p class="panel-label">SUBJECT INFORMATION / FILE M</p>
+            <h3>THE SUBJECT</h3>
+            <div class="subject-data">
+                <span>SUBJECT</span><span>M</span>
+                <span>SPECIES</span><span>Macaca sp.</span>
+                <span>LOCATION</span><span>UNKNOWN</span>
+                <span>TIME ELAPSED</span><span>∞</span>
+                <span>AVAILABLE EQUIPMENT</span><span>1 × TYPEWRITER</span>
+                <span>OUTPUT</span><span>INDETERMINATE</span>
+                <span>CONSCIOUS INTENT</span><span>UNVERIFIABLE</span>
+            </div>
+            <div class="probability">
+                <span>P(EVENTUALLY PRODUCING ANY FINITE TEXT) → 1</span>
+                <span>AS t → ∞</span>
+            </div>
+            <p class="subject-note">Whether the subject understands what it produces remains outside the scope of this archive.</p>
+        </div>
+    </div>
+
+    <script>
+        const subjectButton = document.getElementById("subjectButton");
+        const subjectOverlay = document.getElementById("subjectOverlay");
+        const closePanel = document.getElementById("closePanel");
+        subjectButton.addEventListener("click", () => subjectOverlay.classList.add("active"));
+        closePanel.addEventListener("click", () => subjectOverlay.classList.remove("active"));
+        subjectOverlay.addEventListener("click", (event) => {
+            if (event.target === subjectOverlay) subjectOverlay.classList.remove("active");
+        });
+    </script>
 </body>
 </html>
