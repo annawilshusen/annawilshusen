@@ -406,10 +406,8 @@
     /* RANDOM TYPEWRITER OUTPUT */
     
     const subjectCharacters = "abcdefghijklmnopqrstuvwxyz     ";
-    const SUBJECT_AVERAGE_KEYSTROKE = 165;
     
     let subjectText = localStorage.getItem("subjectMOutput") || "";
-    let subjectLastSeen = Number(localStorage.getItem("subjectMLastSeen")) || Date.now();
     
     function randomSubjectCharacter() {
         return subjectCharacters[
@@ -431,25 +429,6 @@
         }
     }
     
-    function restoreSubjectOutput() {
-        const timeAway = Date.now() - subjectLastSeen;
-    
-        const missedKeystrokes = Math.min(
-            Math.floor(timeAway / SUBJECT_AVERAGE_KEYSTROKE),
-            500
-        );
-    
-        for (let i = 0; i < missedKeystrokes; i++) {
-            subjectText += randomSubjectCharacter();
-        }
-    
-        subjectOutput.textContent = subjectText;
-        trimSubjectOutput();
-    
-        localStorage.setItem("subjectMOutput", subjectText);
-        localStorage.setItem("subjectMLastSeen", Date.now());
-    }
-    
     function subjectType() {
         if (!subjectOutput) return;
     
@@ -459,21 +438,16 @@
         trimSubjectOutput();
     
         localStorage.setItem("subjectMOutput", subjectText);
-        localStorage.setItem("subjectMLastSeen", Date.now());
     
         const nextKeystroke = 70 + Math.random() * 260;
         setTimeout(subjectType, nextKeystroke);
     }
     
-    restoreSubjectOutput();
+    subjectOutput.textContent = subjectText;
+    trimSubjectOutput();
     subjectType();
     
     window.addEventListener("resize", trimSubjectOutput);
-    
-    window.addEventListener("beforeunload", () => {
-        localStorage.setItem("subjectMOutput", subjectText);
-        localStorage.setItem("subjectMLastSeen", Date.now());
-    });
         
     </script>
 </body>
