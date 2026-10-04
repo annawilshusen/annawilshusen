@@ -81,18 +81,7 @@
                 <p class="section-label">ARCHIVE / PROJECTS</p>
                 <h2>Projects</h2>
                 <p class="section-intro">Things that escaped the page and became physical.</p>
-        
-                <div class="archive-list">
-                    <a class="archive-entry" data-archive-object data-archive-type="project" href="projects/irrigation.html">
-                        <span class="entry-id">X-001</span>
-                        <span class="entry-main">
-                            <span class="entry-title">Automatic Irrigation System</span>
-                            <span class="entry-description">Can irrigation respond to what the soil actually needs?</span>
-                        </span>
-                        <span class="entry-meta">PROJECT · ACTIVE</span>
-                        <span class="entry-arrow">→</span>
-                    </a>
-                </div>
+                <div class="archive-list" id="projectList"></div>
             </div>
         </section>
     </main>
@@ -300,7 +289,8 @@
         const destinations = {
             writing: document.getElementById("writingList"),
             piano: document.getElementById("pianoList"),
-            noticing: document.getElementById("noticingList")
+            noticing: document.getElementById("noticingList"),
+            project: document.getElementById("projectList")
         };
     
         Object.values(destinations).forEach(destination => {
@@ -332,7 +322,7 @@
         const writingCount = archive.filter(item => item.section === "writing").length;
         const observationCount = archive.filter(item => item.section === "noticing").length;
         const pianoCount = archive.filter(item => item.section === "piano").length;
-        const projectCount = document.querySelectorAll('[data-archive-type="project"]').length;
+        const projectCount = archive.filter(item => item.section === "project").length;
     
         document.getElementById("writingCount").textContent = writingCount;
         document.getElementById("observationCount").textContent = observationCount;
