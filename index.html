@@ -141,6 +141,8 @@
             <p class="subject-note">Whether the subject understands what it produces remains outside the scope of this archive.</p>
         </div>
     </div>
+
+    <script src="archive.js"></script>
     
     <script>
         const subjectButton = document.getElementById("subjectButton");
@@ -167,15 +169,26 @@
             button.addEventListener("click", () => {
                 const group = button.dataset.group;
                 const filter = button.dataset.filter;
-
-                document.querySelectorAll(`.filter-button[data-group="${group}"]`).forEach(item => {
-                    item.classList.remove("active");
+        
+                document.querySelectorAll(`.filter-button[data-group="${group}"]`).forEach(other => {
+                    other.classList.remove("active");
                 });
-
+        
                 button.classList.add("active");
-
+        
                 document.querySelectorAll(`.filter-item[data-group="${group}"]`).forEach(item => {
-                    item.hidden = filter !== "all" && item.dataset.category !== filter;
+                    const visible = filter === "all" || item.dataset.category === filter;
+                    item.hidden = !visible;
+        
+                    if (!visible) {
+                        const expanded = item.querySelector(".entry-expanded");
+                        const toggle = item.querySelector(".entry-toggle");
+        
+                        if (expanded) expanded.hidden = true;
+                        if (toggle) toggle.textContent = "+";
+        
+                        item.classList.remove("open");
+                    }
                 });
             });
         });
@@ -187,6 +200,133 @@
         document.getElementById("writingCount").textContent = writingObjects.length;
         document.getElementById("observationCount").textContent = observationObjects.length;
         document.getElementById("projectCount").textContent = projectObjects.length;
+        function createEntry(item) {
+    const entry = document.createElement("div");
+    entry.className = "archive-entry archive-object filter-item";
+    entry.dataset.group = item.section;
+    entry.dataset.category = item.category || "";
+
+    const meta = item.section === "writing"
+        ? `${(item.category || "").toUpperCase()}${item.year ? " · " + item.year : ""}`
+        : item.section === "piano"
+        ? (item.category || "").toUpperCase()
+        : `${(item.category || "").toUpperCase()}${item.status ? " · " + item.status : ""}`;
+
+    entry.innerHTML = `
+        <span class="entry-id">${item.id}</span>
+        <span class="entry-main">
+            <span class="entry-title">${item.title}</span>
+            <span class="entry-description">${item.short || ""}</span>
+        </span>
+        <span class="entry-meta">${meta}</span>
+        <button class="entry-toggle" type="button" aria-label="Show more information">+</button>
+        <div class="entry-expanded" hidden></div>
+    `;
+
+    const expanded = entry.querySelector(".entry-expanded");
+    expanded.innerHTML = createExpandedContent(item);
+
+    entry.addEventListener("click", event => {
+        if (event.target.closest(".document-link")) return;
+
+        const wasOpen = !expanded.hidden;
+
+        document.querySelectorAll(".archive-object").forEach(other => {
+            const otherExpanded = other.querySelector(".entry-expanded");
+            const otherToggle = other.querySelector(".entry-toggle");
+
+            if (otherExpanded) otherExpanded.hidden = true;
+            if (otherToggle) otherToggle.textContent = "+";
+            other.classList.remove("open");
+        });
+
+        if (!wasOpen) {
+            expanded.hidden = false;
+            entry.querySelector(".entry-toggle").textContent = "×";
+            entry.classList.add("open");
+        }
+    });
+
+    return entry;
+    }
+    function createExpandedContent(item) {
+        let content = "";
+    
+        if (item.section === "piano") {
+            if (item.comments) {
+                content += `
+                    <div class="expanded-description">
+                        <span>COMMENTS</span>
+                        <p>${item.comments}</p>
+                    </div>
+                `;
+            }
+        } else {
+            if (item.description) {
+                content += `
+                    <div class="expanded-description">
+                        <span>DESCRIPTION</span>
+                        <p>${item.description}</p>
+                    </div>
+                `;
+            }
+    
+            content += `<div class="expanded-data">`;
+    
+            if (item.year) content += `<span>YEAR</span><span>${item.year}</span>`;
+            if (item.category) content += `<span>CATEGORY</span><span>${item.category.toUpperCase()}</span>`;
+            if (item.status) content += `<span>STATUS</span><span>${item.status}</span>`;
+            if (item.topics && item.topics.length) {
+                content += `<span>TOPICS</span><span>${item.topics.join(" · ")}</span>`;
+            }
+    
+            content += `</div>`;
+        }
+    
+        if (item.link) {
+            content += `
+                <a class="document-link" href="${item.link}" target="_blank" rel="noopener">
+                    <span>${item.linkLabel || "OPEN DOCUMENT"}</span>
+                    <span>↗</span>
+                </a>
+            `;
+        }
+    
+        return content;
+    }
+    
+    function renderArchive() {
+        const destinations = {
+            writing: document.getElementById("writingList"),
+            piano: document.getElementById("pianoList"),
+            noticing: document.getElementById("noticingList")
+        };
+    
+        Object.values(destinations).forEach(destination => {
+            if (destination) destination.innerHTML = "";
+        });
+    
+        archive.forEach(item => {
+            const destination = destinations[item.section];
+            if (destination) destination.appendChild(createEntry(item));
+        });
+    
+        if (destinations.noticing && !archive.some(item => item.section === "noticing")) {
+            destinations.noticing.innerHTML = `
+                <div class="archive-entry empty-entry">
+                    <span class="entry-id">—</span>
+                    <span class="entry-main">
+                        <span class="entry-title">Nothing recorded yet.</span>
+                        <span class="entry-description">Presumably, I haven't noticed it.</span>
+                    </span>
+                    <span class="entry-meta">AWAITING OBSERVATION</span>
+                    <span class="entry-arrow">·</span>
+                </div>
+            `;
+        }
+    }
+    
+    renderArchive();
     </script>
 </body>
 </html>
