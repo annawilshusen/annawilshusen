@@ -1177,3 +1177,50 @@ a.transmission-link:hover {
 .footer-links .infinity-link {
     justify-self: auto;
 }
+
+/* ARCHIVE STATUS */
+.archive-status-block {
+    padding: 7vh 5vw;
+    display: grid;
+    grid-template-columns: 15% 1fr;
+    border-bottom: 1px solid var(--line);
+}
+
+.archive-status-block .section-label {
+    margin: 0;
+}
+
+.archive-status-data {
+    max-width: 650px;
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    border-top: 1px solid var(--line);
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+}
+
+.archive-status-data span {
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.archive-status-data span:nth-child(odd) {
+    color: var(--muted);
+}
+
+.archive-status-data span:nth-child(even) {
+    text-align: right;
+}
+
+@media (max-width: 750px) {
+    .archive-status-block {
+        padding: 7vh 7vw;
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .archive-status-data {
+        width: 100%;
+    }
+}
