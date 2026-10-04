@@ -1661,3 +1661,96 @@ a.transmission-link:hover {
     justify-content: space-between;
     color: var(--text) !important;
 }
+
+/* 404 / OBJECT NOT FOUND */
+
+.error-body {
+    min-height: 100vh;
+}
+
+.error-page {
+    min-height: calc(100vh - 110px);
+    padding: 125px 5vw 8vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.error-code {
+    position: absolute;
+    top: 105px;
+    right: 5vw;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    line-height: 1.7;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-align: right;
+}
+
+.error-content {
+    width: 100%;
+}
+
+.error-title {
+    margin: 0;
+    font-size: clamp(75px, 13vw, 190px);
+    line-height: 0.78;
+    letter-spacing: -0.075em;
+    font-weight: 500;
+}
+
+.error-intro {
+    margin: 55px 0 20px;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-style: italic;
+}
+
+.error-reasons {
+    width: min(650px, 100%);
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    border-top: 1px solid var(--line);
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+}
+
+.error-reasons span {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.error-reasons span:nth-child(odd) {
+    color: var(--muted);
+}
+
+.error-return {
+    display: inline-block;
+    margin-top: 45px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--text);
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    transition: opacity 0.2s;
+}
+
+.error-return:hover {
+    opacity: 0.4;
+}
+
+@media (max-width: 750px) {
+    .error-page {
+        padding: 130px 7vw 7vh;
+    }
+
+    .error-code {
+        right: 7vw;
+    }
+
+    .error-title {
+        font-size: 18vw;
+    }
+}
