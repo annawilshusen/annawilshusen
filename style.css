@@ -420,3 +420,170 @@ footer span:last-child {
 .subject-overlay[hidden] {
     display: none !important;
 }
+
+/* PROJECT PAGE FIX */
+.project-page {
+    padding-top: 64px;
+}
+
+.project-hero {
+    min-height: calc(100vh - 64px);
+    padding: 8vh 5vw 7vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+}
+
+.project-hero .section-label {
+    position: absolute;
+    top: 7vh;
+    left: 5vw;
+}
+
+.project-title {
+    width: 70%;
+    margin: 0;
+    font-size: clamp(60px, 8.5vw, 135px);
+    line-height: 0.82;
+    letter-spacing: -0.065em;
+    font-weight: 500;
+}
+
+.project-meta {
+    position: absolute;
+    top: 7vh;
+    right: 5vw;
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--line);
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+}
+
+.project-meta span {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.project-meta span:nth-child(odd) {
+    color: var(--muted);
+}
+
+.project-intro {
+    position: absolute;
+    left: 5vw;
+    bottom: 7vh;
+    max-width: 500px;
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.project-block {
+    min-height: 70vh;
+    padding: 12vh 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--line);
+}
+
+.project-block h2 {
+    margin: 0 0 40px;
+    font-size: clamp(50px, 7vw, 105px);
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+    font-weight: 400;
+}
+
+.project-block > p:last-child {
+    max-width: 700px;
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.log-list {
+    width: 100%;
+    margin-top: 30px;
+    border-top: 1px solid var(--line);
+}
+
+.log-entry {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 30px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.log-date {
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.log-entry h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.log-entry p {
+    margin: 0;
+    max-width: 600px;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+@media (max-width: 750px) {
+    .project-status {
+        display: none;
+    }
+
+    .project-hero {
+        min-height: 100vh;
+        padding: 120px 7vw 8vh;
+        justify-content: center;
+    }
+
+    .project-hero .section-label {
+        top: 100px;
+        left: 7vw;
+    }
+
+    .project-title {
+        width: 100%;
+        font-size: 16vw;
+    }
+
+    .project-meta {
+        position: static;
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .project-intro {
+        position: static;
+        margin-top: 45px;
+    }
+
+    .project-block {
+        min-height: 65vh;
+        padding: 10vh 7vw;
+    }
+
+    .log-entry {
+        grid-template-columns: 70px 1fr;
+    }
+}
