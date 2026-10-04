@@ -416,3 +416,7 @@ footer span:last-child {
         padding: 75px 7vw;
     }
 }
+
+.subject-overlay[hidden] {
+    display: none !important;
+}
