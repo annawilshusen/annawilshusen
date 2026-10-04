@@ -612,3 +612,30 @@ footer span:last-child {
 .project-topbar nav {
     margin-right: 70px;
 }
+
+@media (min-width: 751px) {
+    .project-topbar {
+        display: grid;
+        grid-template-columns: 220px 1fr 240px;
+        column-gap: 30px;
+    }
+    .project-topbar nav {
+        justify-self: center;
+        margin: 0;
+    }
+    .project-topbar .project-status {
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+    }
+    .project-topbar .project-status .status-dot {
+        width: 6px;
+        height: 6px;
+        margin: 0;
+        flex: 0 0 6px;
+        border-radius: 50%;
+        background: var(--accent);
+    }
+}
