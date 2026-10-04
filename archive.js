@@ -37,5 +37,31 @@ const archive = [
         topics: ["PERCEPTION", "ANGULAR SIZE", "PERSPECTIVE"],
         link: "",
         linkLabel: "OPEN DOCUMENT"
+    },
+    {
+        id: "X-001",
+        section: "project",
+        category: "research",
+        title: "Automatic Irrigation System",
+        short: "Can irrigation respond to what the soil actually needs?",
+        description: "An automatic irrigation system that uses soil-moisture measurements to determine when watering is necessary, with the aim of reducing unnecessary water consumption.",
+        year: "2026",
+        status: "ACTIVE",
+        topics: ["IRRIGATION", "ELECTRONICS", "WATER"],
+        link: "projects/irrigation.html",
+        linkLabel: "OPEN PROJECT"
+    },
+    {
+        id: "X-002",
+        section: "project",
+        category: "experiment",
+        title: "Cloud Chamber",
+        short: "Making invisible particle tracks visible.",
+        description: "A cloud chamber experiment used to observe the tracks left by ionizing particles passing through a supersaturated layer of alcohol vapour.",
+        year: "2026",
+        status: "COMPLETE",
+        topics: ["PARTICLE PHYSICS", "COSMIC RAYS", "CLOUD CHAMBER"],
+        link: "",
+        linkLabel: "WATCH VIDEO"
     }
 ];
