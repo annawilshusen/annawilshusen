@@ -22,8 +22,20 @@ const archive = [
         year: "2026",
         status: "COMPLETE",
         topics: ["STATISTICS", "PROBABILITY", "HUMAN BEHAVIOUR"],
-        link: "files/LaEstadisticaDetrasDeLaImpaciencia.pdf",
-        linkLabel: "OPEN DOCUMENT"
+        links: [
+            {
+                label: "OPEN PAPER",
+                url: "files/LaEstadisticaDetrasDeLaImpaciencia.pdf"
+            },
+            {
+                label: "WATCH VIDEO",
+                url: "YOUR-VIDEO-LINK"
+            },
+            {
+                label: "OPEN PRESENTATION",
+                url: "YOUR-PRESENTATION-LINK"
+            }
+        ]
     },
     {
         id: "P-001",
