@@ -108,7 +108,7 @@
 
     <footer class="main-footer">
         <span>ANNA WILSHUSEN GASKA</span>
-        <span>THE MONKEY IS STILL TYPING.</span>
+        <span class="subject-footer">THE MONKEY IS STILL TYPING.<span class="typing-cursor">█</span></span>
         <div class="footer-links">
             <a href="transmission.html">CONTACT</a>
             <a class="infinity-link" href="portfolio.html" aria-label="Portfolio">∞</a>
@@ -125,7 +125,7 @@
                 <span>SUBJECT</span><span>M</span>
                 <span>SPECIES</span><span>Macaca sp.</span>
                 <span>LOCATION</span><span>UNKNOWN</span>
-                <span>TIME ELAPSED</span><span>∞</span>
+                <span>TIME ELAPSED</span><span class="subject-time">—</span>
                 <span>AVAILABLE EQUIPMENT</span><span>1 × TYPEWRITER</span>
                 <span>OUTPUT</span><span>INDETERMINATE</span>
                 <span>CONSCIOUS INTENT</span><span>UNVERIFIABLE</span>
@@ -351,6 +351,84 @@
             writingCount + observationCount + pianoCount + projectCount;
     }
     updateArchiveStatus();
+        /* SUBJECT M / LIVE EXPERIMENT */
+    
+    const elapsedDisplay = document.getElementById("subjectElapsed");
+    const subjectOutput = document.getElementById("subjectOutput");
+    
+    const SUBJECT_BASE_YEARS = 1842;
+    const SUBJECT_BASE_DAYS = 73;
+    const SUBJECT_BASE_HOURS = 16;
+    const SUBJECT_BASE_MINUTES = 42;
+    const SUBJECT_BASE_SECONDS = 8;
+    
+    let subjectStart = localStorage.getItem("subjectMStart");
+    
+    if (!subjectStart) {
+        subjectStart = Date.now();
+        localStorage.setItem("subjectMStart", subjectStart);
+    }
+    
+    function getSubjectTime() {
+        const realElapsedSeconds = Math.floor(
+            (Date.now() - Number(subjectStart)) / 1000
+        );
+    
+        let totalSeconds =
+            SUBJECT_BASE_SECONDS +
+            SUBJECT_BASE_MINUTES * 60 +
+            SUBJECT_BASE_HOURS * 3600 +
+            SUBJECT_BASE_DAYS * 86400 +
+            realElapsedSeconds;
+    
+        const years = SUBJECT_BASE_YEARS + Math.floor(totalSeconds / (365 * 86400));
+        totalSeconds %= 365 * 86400;
+    
+        const days = Math.floor(totalSeconds / 86400);
+        totalSeconds %= 86400;
+    
+        const hours = Math.floor(totalSeconds / 3600);
+        totalSeconds %= 3600;
+    
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+    
+        return `${years}Y ${String(days).padStart(3, "0")}D ${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    }
+    
+    function updateSubjectTime() {
+        const time = getSubjectTime();
+        if (elapsedDisplay) {
+            elapsedDisplay.textContent = time;
+        }
+        document.querySelectorAll(".subject-time").forEach(element => {
+            element.textContent = time;
+        });
+    }
+    updateSubjectTime();
+    setInterval(updateSubjectTime, 1000);
+    
+    /* RANDOM TYPEWRITER OUTPUT */
+    
+    const subjectCharacters = "abcdefghijklmnopqrstuvwxyz     ";
+    let subjectText = "";
+    
+    function subjectType() {
+        if (!subjectOutput) return;
+        const character =
+            subjectCharacters[
+                Math.floor(Math.random() * subjectCharacters.length)
+            ];
+        subjectText += character;
+        if (subjectText.length > 180) {
+            subjectText = subjectText.slice(-180);
+        }
+        subjectOutput.textContent = subjectText;
+        const nextKeystroke = 70 + Math.random() * 260;
+        setTimeout(subjectType, nextKeystroke);
+    }
+    subjectType();
+        
     </script>
 </body>
 </html>
