@@ -192,14 +192,6 @@
                 });
             });
         });
-        const archiveObjects = document.querySelectorAll("[data-archive-object]");
-        const writingObjects = document.querySelectorAll('[data-archive-type="writing"]');
-        const observationObjects = document.querySelectorAll('[data-archive-type="observation"]');
-        const projectObjects = document.querySelectorAll('[data-archive-type="project"]');
-        document.getElementById("objectCount").textContent = archiveObjects.length;
-        document.getElementById("writingCount").textContent = writingObjects.length;
-        document.getElementById("observationCount").textContent = observationObjects.length;
-        document.getElementById("projectCount").textContent = projectObjects.length;
         function createEntry(item) {
     const entry = document.createElement("div");
     entry.className = "archive-entry archive-object filter-item";
@@ -327,6 +319,19 @@
     }
     
     renderArchive();
+    function updateArchiveStatus() {
+        const writingCount = archive.filter(item => item.section === "writing").length;
+        const observationCount = archive.filter(item => item.section === "noticing").length;
+        const pianoCount = archive.filter(item => item.section === "piano").length;
+        const projectCount = document.querySelectorAll('[data-archive-type="project"]').length;
+    
+        document.getElementById("writingCount").textContent = writingCount;
+        document.getElementById("observationCount").textContent = observationCount;
+        document.getElementById("projectCount").textContent = projectCount;
+        document.getElementById("objectCount").textContent =
+            writingCount + observationCount + pianoCount + projectCount;
+    }
+    updateArchiveStatus();
     </script>
 </body>
 </html>
