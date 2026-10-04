@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Anna Wilshusen Gaska</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="portfolio-body">
+    <main class="portfolio-page">
+        <a class="portfolio-back" href="index.html">← RETURN TO ARCHIVE</a>
+
+        <div class="portfolio-code">
+            ARCHIVE / REQUESTED DOCUMENT<br>
+            RESPONSIBLE SUBJECT: M<br>
+            STATUS: IN PROGRESS
+        </div>
+
+        <section class="portfolio-content">
+            <p class="section-label">REQUESTED DOCUMENT</p>
+            <h1 class="portfolio-title">MY<br>PORTFOLIO</h1>
+
+            <div class="portfolio-message">
+                <p>Not yet.</p>
+                <p>Subject M has been instructed to produce it.</p>
+                <p>Statistically, this may take a while.</p>
+            </div>
+
+            <div class="waiting-block">
+                <p class="waiting-label">YOU HAVE BEEN WAITING FOR</p>
+                <div class="waiting-time" id="waitingTime">000 DAYS 00 HOURS 00 MINUTES 00 SECONDS</div>
+            </div>
+
+            <div class="estimate-block">
+                <span>ESTIMATED REMAINING TIME</span>
+                <strong>≈ 10<sup>48,392</sup> YEARS</strong>
+            </div>
+
+            <div class="portfolio-progress">
+                <span>PROGRESS</span>
+                <span>STATISTICALLY NEGLIGIBLE</span>
+            </div>
+
+            <p class="portfolio-final">Estimated remaining time has not measurably changed.</p>
+        </section>
+    </main>
+
+    <script>
+        const storageKey = "awgPortfolioWaitingSince";
+        let start = localStorage.getItem(storageKey);
+
+        if (!start) {
+            start = Date.now();
+            localStorage.setItem(storageKey, start);
+        }
+
+        start = Number(start);
+
+        function updateWaitingTime() {
+            const elapsed = Math.max(0, Date.now() - start);
+
+            const totalSeconds = Math.floor(elapsed / 1000);
+            const days = Math.floor(totalSeconds / 86400);
+            const hours = Math.floor((totalSeconds % 86400) / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            document.getElementById("waitingTime").textContent =
+                String(days).padStart(3, "0") + " DAYS " +
+                String(hours).padStart(2, "0") + " HOURS " +
+                String(minutes).padStart(2, "0") + " MINUTES " +
+                String(seconds).padStart(2, "0") + " SECONDS";
+        }
+
+        updateWaitingTime();
+        setInterval(updateWaitingTime, 1000);
+    </script>
+</body>
+</html>
