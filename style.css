@@ -1787,6 +1787,15 @@ a.transmission-link:hover {
     min-width: 0;
     overflow: hidden;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+#subjectOutput {
+    display: inline-block;
+    flex: 0 0 auto;
+    white-space: pre;
+    transition: transform 0.08s linear;
 }
 
 #subjectOutput {
@@ -1830,9 +1839,17 @@ a.transmission-link:hover {
     opacity: 0.72;
 }
 
-.subject-output::before {
-    content: "OUTPUT:  ";
+.output-label {
+    flex: 0 0 auto;
+    margin-right: 8px;
     color: var(--muted);
+}
+
+.output-window {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .subject-footer .typing-cursor {
