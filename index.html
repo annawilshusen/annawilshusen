@@ -13,6 +13,7 @@
         <nav>
             <a href="#writings">WRITINGS</a>
             <a href="#piano">PIANO</a>
+            <a href="#noticing">NOTICING</a>
             <a href="#projects">PROJECTS</a>
             <a href="#about">ABOUT</a>
         </nav>
@@ -36,8 +37,16 @@
                 <p class="section-label">ARCHIVE / WRITINGS</p>
                 <h2>Writings</h2>
                 <p class="section-intro">Papers, essays, ideas, and other arrangements of words produced along the way.</p>
+
+                <div class="archive-filters">
+                    <button class="filter-button active" data-group="writing" data-filter="all">ALL</button>
+                    <button class="filter-button" data-group="writing" data-filter="papers">PAPERS</button>
+                    <button class="filter-button" data-group="writing" data-filter="philosophy">PHILOSOPHY</button>
+                    <button class="filter-button" data-group="writing" data-filter="kajhgwk">KAJHGWK</button>
+                </div>
+
                 <div class="archive-list">
-                    <a class="archive-entry" href="files/neutrinos-as-cosmic-rays.pdf" target="_blank">
+                    <a class="archive-entry filter-item" data-group="writing" data-category="papers" href="files/neutrinos-as-cosmic-rays.pdf" target="_blank">
                         <span class="entry-id">001</span>
                         <span class="entry-main">
                             <span class="entry-title">Reasons for and against classifying neutrinos as cosmic rays</span>
@@ -56,26 +65,55 @@
                 <p class="section-label">ARCHIVE / PIANO</p>
                 <h2>Piano</h2>
                 <p class="section-intro">Scores I've played, studied, or simply thought were worth leaving here.</p>
+
+                <div class="archive-filters">
+                    <button class="filter-button active" data-group="piano" data-filter="all">ALL</button>
+                    <button class="filter-button" data-group="piano" data-filter="sight-reading">SIGHT READING</button>
+                    <button class="filter-button" data-group="piano" data-filter="repertoire">REPERTOIRE</button>
+                </div>
+
                 <div class="archive-list">
-                    <a class="archive-entry" href="#">
+                    <a class="archive-entry filter-item" data-group="piano" data-category="repertoire" href="#">
                         <span class="entry-id">001</span>
                         <span class="entry-main">
                             <span class="entry-title">Doctor Gradus ad Parnassum</span>
                             <span class="entry-description">Claude Debussy · Children's Corner, L. 113</span>
                         </span>
-                        <span class="entry-meta">SCORE</span>
+                        <span class="entry-meta">REPERTOIRE</span>
                         <span class="entry-arrow">↗</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="archive-section" id="projects">
+        <section class="archive-section" id="noticing">
             <div class="section-number">03</div>
+            <div class="section-content">
+                <p class="section-label">ARCHIVE / OBSERVATIONS</p>
+                <h2>The Art of Noticing</h2>
+                <p class="section-intro">Things that were always there, but took me an unreasonable amount of time to notice.</p>
+
+                <div class="archive-list">
+                    <div class="archive-entry empty-entry">
+                        <span class="entry-id">—</span>
+                        <span class="entry-main">
+                            <span class="entry-title">Nothing recorded yet.</span>
+                            <span class="entry-description">Presumably, I haven't noticed it.</span>
+                        </span>
+                        <span class="entry-meta">AWAITING OBSERVATION</span>
+                        <span class="entry-arrow">·</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="archive-section" id="projects">
+            <div class="section-number">04</div>
             <div class="section-content">
                 <p class="section-label">ARCHIVE / PROJECTS</p>
                 <h2>Projects</h2>
                 <p class="section-intro">Things that escaped the page and became physical.</p>
+
                 <div class="archive-list">
                     <a class="archive-entry" href="projects/irrigation.html">
                         <span class="entry-id">001</span>
@@ -91,11 +129,36 @@
         </section>
 
         <section class="archive-section" id="about">
-            <div class="section-number">04</div>
-            <div>
+            <div class="section-number">05</div>
+            <div class="section-content">
                 <p class="section-label">ARCHIVE / ABOUT</p>
                 <h2>About</h2>
                 <p class="about-statement">I want to share what I would've loved to have shared with me.</p>
+            </div>
+        </section>
+
+        <section class="archive-section transmission-section" id="transmission">
+            <div class="section-number">06</div>
+            <div class="section-content">
+                <p class="section-label">ARCHIVE / INCOMING TRANSMISSIONS</p>
+                <h2>Anything you want to tell me?</h2>
+                <p class="section-intro">A thought, question, correction, collaboration, objection, or something that doesn't belong anywhere else.</p>
+
+                <div class="transmission-box">
+                    <p class="transmission-question">Alternatively, contribute a thought to Subject M.</p>
+                    <p class="transmission-small">Conscious intent is optional.</p>
+
+                    <div class="transmission-options">
+                        <a href="mailto:YOUR-EMAIL-HERE" class="transmission-link">
+                            <span>IDENTIFIED TRANSMISSION</span>
+                            <span>→</span>
+                        </a>
+                        <span class="transmission-link unavailable">
+                            <span>ANONYMOUS TRANSMISSION</span>
+                            <span>NOT YET AVAILABLE</span>
+                        </span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -103,7 +166,7 @@
     <footer>
         <span>ANNA WILSHUSEN GASKA</span>
         <span>THE MONKEY IS STILL TYPING.</span>
-        <span>∞</span>
+        <a class="infinity-link" href="portfolio.html" aria-label="Portfolio">∞</a>
     </footer>
 
     <div class="subject-overlay" id="subjectOverlay" hidden>
@@ -111,6 +174,7 @@
             <button class="close-panel" id="closePanel">×</button>
             <p class="panel-label">SUBJECT INFORMATION / FILE M</p>
             <h3>THE SUBJECT</h3>
+
             <div class="subject-data">
                 <span>SUBJECT</span><span>M</span>
                 <span>SPECIES</span><span>Macaca sp.</span>
@@ -120,10 +184,12 @@
                 <span>OUTPUT</span><span>INDETERMINATE</span>
                 <span>CONSCIOUS INTENT</span><span>UNVERIFIABLE</span>
             </div>
+
             <div class="probability">
                 <span>P(EVENTUALLY PRODUCING ANY FINITE TEXT) → 1</span>
                 <span>AS t → ∞</span>
             </div>
+
             <p class="subject-note">Whether the subject understands what it produces remains outside the scope of this archive.</p>
         </div>
     </div>
@@ -145,8 +211,25 @@
 
         closePanel.addEventListener("click", closeSubject);
 
-        subjectOverlay.addEventListener("click", (event) => {
+        subjectOverlay.addEventListener("click", event => {
             if (event.target === subjectOverlay) closeSubject();
+        });
+
+        document.querySelectorAll(".filter-button").forEach(button => {
+            button.addEventListener("click", () => {
+                const group = button.dataset.group;
+                const filter = button.dataset.filter;
+
+                document.querySelectorAll(`.filter-button[data-group="${group}"]`).forEach(item => {
+                    item.classList.remove("active");
+                });
+
+                button.classList.add("active");
+
+                document.querySelectorAll(`.filter-item[data-group="${group}"]`).forEach(item => {
+                    item.hidden = filter !== "all" && item.dataset.category !== filter;
+                });
+            });
         });
     </script>
 </body>
