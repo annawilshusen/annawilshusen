@@ -362,12 +362,7 @@
     const SUBJECT_BASE_MINUTES = 42;
     const SUBJECT_BASE_SECONDS = 8;
     
-    let subjectStart = localStorage.getItem("subjectMStart");
-    
-    if (!subjectStart) {
-        subjectStart = Date.now();
-        localStorage.setItem("subjectMStart", subjectStart);
-    }
+    const subjectStart = new Date("2026-10-04T14:54:00+02:00").getTime();
     
     function getSubjectTime() {
         const realElapsedSeconds = Math.floor(
