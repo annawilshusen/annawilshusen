@@ -1155,3 +1155,25 @@ a.transmission-link:hover {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+.footer-links {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-links > a:first-child {
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    transition: opacity 0.2s;
+}
+
+.footer-links > a:first-child:hover {
+    opacity: 0.4;
+}
+
+.footer-links .infinity-link {
+    justify-self: auto;
+}
