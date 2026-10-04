@@ -639,3 +639,128 @@ footer span:last-child {
         background: var(--accent);
     }
 }
+
+/* ARCHIVE FILTERS */
+.archive-filters {
+    display: flex;
+    gap: 24px;
+    margin: -35px 0 35px;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    padding: 0 0 5px;
+    border: none;
+    border-bottom: 1px solid transparent;
+    background: transparent;
+    color: var(--muted);
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    color: var(--text);
+}
+
+.filter-button.active {
+    color: var(--text);
+    border-bottom-color: var(--text);
+}
+
+.filter-item[hidden] {
+    display: none;
+}
+
+/* ART OF NOTICING */
+#noticing h2 {
+    max-width: 900px;
+}
+
+.empty-entry {
+    cursor: default;
+    color: var(--muted);
+}
+
+.empty-entry:hover {
+    padding-left: 0;
+}
+
+/* TRANSMISSIONS */
+.transmission-section h2 {
+    max-width: 1000px;
+    font-size: clamp(50px, 7vw, 105px);
+}
+
+.transmission-box {
+    max-width: 850px;
+    margin-top: 70px;
+    border-top: 1px solid var(--line);
+}
+
+.transmission-question {
+    margin: 35px 0 8px;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.transmission-small {
+    margin: 0 0 45px;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+.transmission-options {
+    border-top: 1px solid var(--line);
+}
+
+.transmission-link {
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    border-bottom: 1px solid var(--line);
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    transition: padding 0.2s;
+}
+
+a.transmission-link:hover {
+    padding-left: 10px;
+}
+
+.transmission-link.unavailable {
+    color: var(--muted);
+}
+
+/* SECRET PORTFOLIO LINK */
+.infinity-link {
+    justify-self: end;
+    font-size: 20px;
+    transition: opacity 0.2s;
+}
+
+.infinity-link:hover {
+    opacity: 0.35;
+}
+
+@media (max-width: 750px) {
+    .archive-filters {
+        margin-top: -25px;
+        gap: 16px;
+    }
+
+    .transmission-box {
+        margin-top: 45px;
+    }
+
+    .transmission-link {
+        font-size: 9px;
+    }
+}
