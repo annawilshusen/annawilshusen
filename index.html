@@ -281,6 +281,17 @@
                     </a>
                 `;
             }
+
+            if (item.links && item.links.length) {
+                item.links.forEach(link => {
+                    content += `
+                        <a class="document-link" href="${link.url}" target="_blank" rel="noopener">
+                            <span>${link.label}</span>
+                            <span>↗</span>
+                        </a>
+                    `;
+                });
+            }
         
             return content;
         }
