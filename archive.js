@@ -19,9 +19,9 @@ const archive = [
         title: "Doctor Gradus ad Parnassum",
         short: "Claude Debussy · Children's Corner, L. 113",
         comments: "Hi! Im still trying out some stuff",
-        link: "this is a link but prob doesnt work jijiji",
+        link: "",
         linkLabel: "OPEN SCORE"
-    }
+    },
     {
         id: "O-001",
         section: "noticing",
@@ -32,7 +32,7 @@ const archive = [
         year: "2026",
         status: "STILL THINKING",
         topics: ["PERCEPTION", "ANGULAR SIZE", "PERSPECTIVE"],
-        link: "jijiji",
+        link: "",
         linkLabel: "OPEN DOCUMENT"
     }
 ];
