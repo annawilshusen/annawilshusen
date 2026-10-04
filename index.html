@@ -95,7 +95,7 @@
         <span>∞</span>
     </footer>
 
-    <div class="subject-overlay" id="subjectOverlay">
+    <div class="subject-overlay" id="subjectOverlay" hidden>
         <div class="subject-panel">
             <button class="close-panel" id="closePanel">×</button>
             <p class="panel-label">SUBJECT INFORMATION / FILE M</p>
@@ -121,10 +121,21 @@
         const subjectButton = document.getElementById("subjectButton");
         const subjectOverlay = document.getElementById("subjectOverlay");
         const closePanel = document.getElementById("closePanel");
-        subjectButton.addEventListener("click", () => subjectOverlay.classList.add("active"));
-        closePanel.addEventListener("click", () => subjectOverlay.classList.remove("active"));
+
+        subjectButton.addEventListener("click", () => {
+            subjectOverlay.hidden = false;
+            requestAnimationFrame(() => subjectOverlay.classList.add("active"));
+        });
+
+        function closeSubject() {
+            subjectOverlay.classList.remove("active");
+            setTimeout(() => subjectOverlay.hidden = true, 350);
+        }
+
+        closePanel.addEventListener("click", closeSubject);
+
         subjectOverlay.addEventListener("click", (event) => {
-            if (event.target === subjectOverlay) subjectOverlay.classList.remove("active");
+            if (event.target === subjectOverlay) closeSubject();
         });
     </script>
 </body>
