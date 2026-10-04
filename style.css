@@ -1767,19 +1767,19 @@ a.transmission-link:hover {
     grid-template-columns: auto 1fr;
     align-items: center;
     gap: 22px;
-    border-bottom: 1px solid var(--line);
-    background: rgba(244,245,243,0.96);
+    border-bottom: 1px solid #cec3b4;
+    background: rgba(232, 225, 214, 0.97);
     backdrop-filter: blur(12px);
     z-index: 9;
     font-family: "Courier New", monospace;
     font-size: 9px;
     letter-spacing: 0.08em;
-    color: var(--muted);
+    color: #625b52;
 }
 
 .subject-elapsed {
     padding-right: 22px;
-    border-right: 1px solid var(--line);
+    border-right: 1px solid #cec3b4;
     white-space: nowrap;
 }
 
@@ -1807,6 +1807,10 @@ a.transmission-link:hover {
     margin-left: 2px;
     color: var(--text);
     animation: subjectBlink 1s steps(1) infinite;
+}
+
+.subject-stream .typing-cursor {
+    color: #3d3832;
 }
 
 @keyframes subjectBlink {
