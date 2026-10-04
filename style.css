@@ -914,3 +914,244 @@ a.transmission-link:hover {
         flex-direction: column;
     }
 }
+
+/* TRANSMISSION PAGE */
+.transmission-status {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.transmission-page {
+    padding-top: 64px;
+}
+
+.transmission-hero {
+    min-height: 72vh;
+    padding: 10vh 5vw 8vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--line);
+}
+
+.transmission-code {
+    position: absolute;
+    top: 7vh;
+    right: 5vw;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    line-height: 1.7;
+    letter-spacing: 0.08em;
+    text-align: right;
+    color: var(--muted);
+}
+
+.transmission-title {
+    font-size: clamp(70px, 11vw, 160px);
+}
+
+.transmission-intro {
+    max-width: 560px;
+    margin: 50px 0 0;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.message-terminal {
+    min-height: 75vh;
+    padding: 12vh 20vw;
+}
+
+.terminal-header {
+    padding: 0 0 18px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    border-bottom: 1px solid var(--text);
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+}
+
+.form-field {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+}
+
+.form-field label {
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 24px 0;
+    border: none;
+    outline: none;
+    resize: vertical;
+    background: transparent;
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: 17px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    background: rgba(48, 75, 67, 0.035);
+}
+
+.message-field {
+    align-items: start;
+}
+
+.message-field label {
+    padding-top: 27px;
+}
+
+.form-bottom {
+    min-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+#formStatus {
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+#transmitButton {
+    padding: 14px 0 14px 30px;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+}
+
+#transmitButton:hover {
+    opacity: 0.45;
+}
+
+#transmitButton:disabled {
+    cursor: wait;
+    opacity: 0.45;
+}
+
+/* TRANSMISSION SUCCESS */
+.transmission-success {
+    padding: 5vh 0;
+}
+
+.transmission-success[hidden] {
+    display: none;
+}
+
+.success-code {
+    margin: 0 0 35px;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+}
+
+.transmission-success h2 {
+    max-width: 850px;
+    margin: 0 0 70px;
+    font-size: clamp(55px, 8vw, 115px);
+    line-height: 0.88;
+    letter-spacing: -0.06em;
+    font-weight: 400;
+}
+
+.success-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--line);
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+}
+
+.success-data span {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.success-data span:nth-child(odd) {
+    color: var(--muted);
+}
+
+.success-note {
+    margin: 50px 0;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.return-archive {
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 750px) {
+    .transmission-status {
+        font-size: 9px;
+    }
+
+    .transmission-hero {
+        min-height: 70vh;
+        padding: 12vh 7vw 8vh;
+    }
+
+    .transmission-code {
+        display: none;
+    }
+
+    .message-terminal {
+        padding: 10vh 7vw;
+    }
+
+    .form-field {
+        grid-template-columns: 1fr;
+        padding-top: 20px;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        padding: 12px 0 20px;
+        font-size: 16px;
+    }
+
+    .message-field label {
+        padding-top: 0;
+    }
+
+    .terminal-header {
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .form-bottom {
+        align-items: flex-end;
+    }
+
+    .success-data {
+        grid-template-columns: 1fr 1fr;
+    }
+}
