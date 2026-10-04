@@ -1616,3 +1616,35 @@ a.transmission-link:hover {
         grid-template-columns: 100px 1fr;
     }
 }
+/* EXPANDABLE ARCHIVE — FINAL OVERRIDES */
+.archive-object {
+    cursor: pointer;
+}
+
+.archive-object.open {
+    padding-left: 0;
+}
+
+.archive-object.open:hover {
+    padding-left: 0;
+}
+
+.archive-object .entry-toggle {
+    justify-self: end;
+}
+
+.archive-object.open .entry-main,
+.archive-object.open .entry-id,
+.archive-object.open .entry-meta,
+.archive-object.open .entry-toggle {
+    align-self: start;
+}
+
+.entry-expanded {
+    margin-top: 5px;
+    border-top: 1px solid var(--line);
+}
+
+.entry-expanded .document-link {
+    color: var(--text);
+}
