@@ -1440,3 +1440,27 @@ a.transmission-link:hover {
         grid-template-columns: 45px 1fr;
     }
 }
+
+.related-block {
+    min-height: 50vh;
+}
+
+.state-grid {
+    width: 100%;
+    max-width: 750px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--line);
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.07em;
+}
+
+.state-grid span {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.state-grid span:nth-child(odd) {
+    color: var(--muted);
+}
