@@ -49,7 +49,7 @@ const archive = [
         {
         id: "W-004",
         section: "writing",
-        category: "Summaries and simulations",
+        category: "kajhgwk",
         title: "Quantum Physics & Relativity - IFAE",
         short: "Papers, notes and simulations from my stay at IFAE.",
         description: "A collection of work developed during the Youth & Science programme at the Institut de Física d'Altes Energies (IFAE), exploring quantum physics, relativity and some of the ideas that transformed modern physics.",
