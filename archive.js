@@ -13,6 +13,19 @@ const archive = [
         linkLabel: "OPEN DOCUMENT"
     },
     {
+        id: "W-002",
+        section: "writing",
+        category: "papers",
+        title: "Estadística detrás de la impaciencia",
+        short: "How much of impatience can be explained by statistics?",
+        description: "A statistical investigation into impatience and the patterns that emerge when human behaviour is translated into data.",
+        year: "2026",
+        status: "COMPLETE",
+        topics: ["STATISTICS", "PROBABILITY", "HUMAN BEHAVIOUR"],
+        link: "files/LaEstadisticaDetrasDeLaImpaciencia.pdf",
+        linkLabel: "OPEN DOCUMENT"
+    },
+    {
         id: "P-001",
         section: "piano",
         category: "repertoire",
