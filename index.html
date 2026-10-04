@@ -403,26 +403,45 @@
     updateSubjectTime();
     setInterval(updateSubjectTime, 1000);
     
-    /* RANDOM TYPEWRITER OUTPUT */
+   /* RANDOM TYPEWRITER OUTPUT */
     
     const subjectCharacters = "abcdefghijklmnopqrstuvwxyz     ";
     let subjectText = "";
     
+    function trimSubjectOutput() {
+        if (!subjectOutput) return;
+    
+        const container = subjectOutput.parentElement;
+    
+        while (
+            subjectOutput.scrollWidth > container.clientWidth &&
+            subjectText.length > 1
+        ) {
+            subjectText = subjectText.slice(1);
+            subjectOutput.textContent = subjectText;
+        }
+    }
+    
     function subjectType() {
         if (!subjectOutput) return;
+    
         const character =
             subjectCharacters[
                 Math.floor(Math.random() * subjectCharacters.length)
             ];
+    
         subjectText += character;
-        if (subjectText.length > 180) {
-            subjectText = subjectText.slice(-180);
-        }
         subjectOutput.textContent = subjectText;
+    
+        trimSubjectOutput();
+    
         const nextKeystroke = 70 + Math.random() * 260;
         setTimeout(subjectType, nextKeystroke);
     }
+    
     subjectType();
+    
+    window.addEventListener("resize", trimSubjectOutput);
         
     </script>
 </body>
