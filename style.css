@@ -1464,3 +1464,43 @@ a.transmission-link:hover {
 .state-grid span:nth-child(odd) {
     color: var(--muted);
 }
+
+/* UNKNOWN */
+.unknown-page {
+    min-height: 100vh;
+    padding: 7vh 5vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.unknown-content {
+    width: 100%;
+}
+
+.unknown-title {
+    font-size: clamp(85px, 15vw, 210px);
+}
+
+.unknown-statement {
+    max-width: 650px;
+    margin: 65px 0 0;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    line-height: 1.55;
+}
+
+.unknown-secondary {
+    max-width: 650px;
+    margin: 20px 0 0;
+    font-family: "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+@media (max-width: 750px) {
+    .unknown-page {
+        padding: 7vh 7vw;
+    }
+}
