@@ -34,6 +34,19 @@ const archive = [
         ]
     },
     {
+        id: "W-003",
+        section: "writing",
+        category: "papers",
+        title: "Què tan dur és l'espai?",
+        short: "Reinventing gravity from almost nothing.",
+        description: "An attempt to reconstruct gravity from a handful of known facts, following intuition, wrong guesses and increasingly questionable calculations until arriving at Newton's law of universal gravitation — and eventually at the point where Newton stops being enough.",
+        year: "2026",
+        status: "COMPLETE",
+        topics: ["GRAVITY", "NEWTONIAN PHYSICS", "BLACK HOLES", "INTUITION"],
+        link: "files/NomesSeQueNoSeRes.pdf",
+        linkLabel: "OPEN PAPER"
+    },
+    {
         id: "P-001",
         section: "piano",
         category: "repertoire",
