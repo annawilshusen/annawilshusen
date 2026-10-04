@@ -1831,12 +1831,14 @@ a.transmission-link:hover {
 }
 
 .subject-output::before {
-    content: "OUTPUT  ";
+    content: "OUTPUT:  ";
     color: var(--muted);
 }
 
 .subject-footer .typing-cursor {
     margin-left: 4px;
+    font-size: 7px;
+    vertical-align: 1px;
 }
 @media (max-width: 750px) {
     .subject-stream {
