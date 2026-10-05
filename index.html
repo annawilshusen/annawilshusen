@@ -17,6 +17,7 @@
             <a href="#piano">PIANO</a>
             <a href="#noticing">NOTICING</a>
             <a href="#projects">PROJECTS</a>
+            <a href="#library">LIBRARY</a>
         </nav>
         <button class="subject-status" id="subjectButton"><span class="status-dot"></span>SUBJECT STATUS: ACTIVE</button>
     </header>
@@ -88,7 +89,27 @@
                 <div class="archive-list" id="noticingList"></div>
             </div>
         </section>
+<!------------------------------------------------- LIBRARY --------------------------------------------------->
+
+        <section class="archive-section" id="library">
+            <div class="section-number">05</div>
+            <div class="section-content">
+                <p class="section-label">ARCHIVE / LIBRARY</p>
+                <h2>Library</h2>
+                <p class="section-intro">Books I've read, things I've underlined, and sentences I didn't want to lose.</p>
+        
+                <div class="archive-filters">
+                    <button class="filter-button active" data-group="library" data-filter="all">ALL</button>
+                    <button class="filter-button" data-group="library" data-filter="book">BOOKS</button>
+                    <button class="filter-button" data-group="library" data-filter="quote">QUOTES</button>
+                </div>
+        
+                <div class="archive-list" id="libraryList"></div>
+            </div>
+        </section>
+
 <!------------------------------------------------- PROJECTS --------------------------------------------------->
+        
         <section class="archive-section" id="projects">
             <div class="section-number">04</div>
             <div class="section-content">
@@ -107,6 +128,7 @@
             <span>WRITINGS</span><span id="writingCount">—</span>
             <span>OBSERVATIONS</span><span id="observationCount">—</span>
             <span>PROJECTS</span><span id="projectCount">—</span>
+            <span>LIBRARY</span><span id="libraryCount">—</span>
             <span>SUBJECT M OUTPUT</span><span>0</span>
         </div>
     </section>
@@ -283,6 +305,9 @@
             const metadata = [];
         
             if (item.year) metadata.push(["YEAR", item.year]);
+            if (item.author) metadata.push(["AUTHOR", item.author]);
+            if (item.source) metadata.push(["SOURCE", item.source]);
+            if (item.rating) metadata.push(["RATING", item.rating]);
             if (item.composer) metadata.push(["COMPOSER", item.composer]);
             if (item.work) metadata.push(["WORK", item.work]);
             if (item.category) metadata.push(["CATEGORY", item.category.toUpperCase()]);
@@ -364,12 +389,19 @@
         const observationCount = archive.filter(item => item.section === "noticing").length;
         const pianoCount = archive.filter(item => item.section === "piano").length;
         const projectCount = archive.filter(item => item.section === "project").length;
+        const libraryCount = archive.filter(item => item.section === "library").length;
     
         document.getElementById("writingCount").textContent = writingCount;
         document.getElementById("observationCount").textContent = observationCount;
         document.getElementById("projectCount").textContent = projectCount;
+        document.getElementById("libraryCount").textContent = libraryCount;
+    
         document.getElementById("objectCount").textContent =
-            writingCount + observationCount + pianoCount + projectCount;
+            writingCount +
+            observationCount +
+            pianoCount +
+            projectCount +
+            libraryCount;
     }
     updateArchiveStatus();
         /* SUBJECT M / LIVE EXPERIMENT */
