@@ -90,6 +90,27 @@ const archive = [
         linkLabel: "OPEN DOCUMENT"
     },
     {
+        id: "L-001",
+        section: "library",
+        category: "book",
+        title: "The Stranger",
+        short: "Albert Camus",
+        author: "Albert Camus",
+        status: "READ",
+        rating: "4 / 5",
+        comments: "helloooo not yet done pls waittt."
+    },
+    {
+        id: "L-002",
+        section: "library",
+        category: "quote",
+        title: "Some quote.",
+        short: "Albert Camus · The Myth of Sisyphus",
+        author: "Albert Camus",
+        source: "The Myth of Sisyphus",
+        comments: "Why I saved this quote."
+    },
+    {
         id: "X-001",
         section: "project",
         category: "research",
