@@ -43,13 +43,13 @@
             </div>
             <p class="archive-statement">An archive of things that may or may not constitute information.</p>
         </section>
-
+<!------------------------------------------------- WRITINGS --------------------------------------------------->
         <section class="archive-section" id="writings">
             <div class="section-number">01</div>
             <div class="section-content">
                 <p class="section-label">ARCHIVE / WRITINGS</p>
                 <h2>Writings</h2>
-                <p class="section-intro">Papers, essays, ideas, and other arrangements of words produced along the way.</p>
+                <p class="section-intro">Arrangements of words produced along the way.</p>
 
                 <div class="archive-filters">
                     <button class="filter-button active" data-group="writing" data-filter="all">ALL</button>
@@ -61,13 +61,13 @@
                 <div class="archive-list" id="writingList"></div>
             </div>
         </section>
-
+<!------------------------------------------------- PIANO --------------------------------------------------->
         <section class="archive-section" id="piano">
             <div class="section-number">02</div>
             <div class="section-content">
                 <p class="section-label">ARCHIVE / PIANO</p>
                 <h2>Piano</h2>
-                <p class="section-intro">Scores I've played, studied, or simply thought were worth leaving here.</p>
+                <p class="section-intro">Scores M thought (?) were worth leaving here.</p>
 
                 <div class="archive-filters">
                     <button class="filter-button active" data-group="piano" data-filter="all">ALL</button>
@@ -78,28 +78,28 @@
                 <div class="archive-list" id="pianoList"></div>
             </div>
         </section>
-
+<!------------------------------------------------- NOTICING --------------------------------------------------->
         <section class="archive-section" id="noticing">
             <div class="section-number">03</div>
             <div class="section-content">
                 <p class="section-label">ARCHIVE / OBSERVATIONS</p>
                 <h2>The Art of Noticing</h2>
-                <p class="section-intro">Things that were always there, but took me an unreasonable amount of time to notice.</p>
+                <p class="section-intro">Things that are there to be noticed. From my window, of course.</p>
                 <div class="archive-list" id="noticingList"></div>
             </div>
         </section>
-
+<!------------------------------------------------- PROJECTS --------------------------------------------------->
         <section class="archive-section" id="projects">
             <div class="section-number">04</div>
             <div class="section-content">
                 <p class="section-label">ARCHIVE / PROJECTS</p>
                 <h2>Projects</h2>
-                <p class="section-intro">Things that escaped the page and became physical.</p>
+                <p class="section-intro">Things that escaped the words and became physical.</p>
                 <div class="archive-list" id="projectList"></div>
             </div>
         </section>
     </main>
-
+<!------------------------------------------------- ARCHIVE STATUS --------------------------------------------------->
     <section class="archive-status-block">
         <p class="section-label">ARCHIVE STATUS</p>
         <div class="archive-status-data">
@@ -113,7 +113,7 @@
 
     <footer class="main-footer">
         <span>ANNA WILSHUSEN GASKA</span>
-        <span class="subject-footer">THE MONKEY IS STILL TYPING.<span class="typing-cursor">█</span></span>
+        <span class="subject-footer">THE MONKEY IS STILL TYPING...<span class="typing-cursor">█</span></span>
         <div class="footer-links">
             <a href="transmission.html">CONTACT</a>
             <a class="infinity-link" href="portfolio.html" aria-label="Portfolio">∞</a>
@@ -330,7 +330,8 @@
             writing: document.getElementById("writingList"),
             piano: document.getElementById("pianoList"),
             noticing: document.getElementById("noticingList"),
-            project: document.getElementById("projectList")
+            project: document.getElementById("projectList"),
+            library: document.getElementById("libraryList")
         };
     
         Object.values(destinations).forEach(destination => {
